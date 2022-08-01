@@ -1,0 +1,5 @@
+C:\Users\ASUS ROG\source\repos\Pharmacy\Pharmacy\obj\Debug\net6.0\Pharmacy.csproj.AssemblyReference.cache
+C:\Users\ASUS ROG\source\repos\Pharmacy\Pharmacy\obj\Debug\net6.0\Pharmacy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS ROG\source\repos\Pharmacy\Pharmacy\obj\Debug\net6.0\Pharmacy.AssemblyInfoInputs.cache
+C:\Users\ASUS ROG\source\repos\Pharmacy\Pharmacy\obj\Debug\net6.0\Pharmacy.AssemblyInfo.cs
+C:\Users\ASUS ROG\source\repos\Pharmacy\Pharmacy\obj\Debug\net6.0\Pharmacy.csproj.CoreCompileInputs.cache
