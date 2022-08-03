@@ -11,18 +11,18 @@ namespace Pharmacy.Controllers
 {
     public class DruggistController
     {
-        private DruggistRepository _druggistRepoitory;
-        private DrugStoreRepository _drugstoreRepoitory;
+        private DruggistRepository _druggistRepository;
+        private DrugStoreRepository _drugstoreRepository;
         public DruggistController()
         {
-            _druggistRepoitory = new DruggistRepository();
-            _drugstoreRepoitory = new DrugStoreRepository();
+            _druggistRepository = new DruggistRepository();
+            _drugstoreRepository = new DrugStoreRepository();
 
         }
         #region CreateDruggist
         public void CreateDruggist()
         {
-            var drugstores = _drugstoreRepoitory.GetAll();
+            var drugstores = _drugstoreRepository.GetAll();
             if (drugstores.Count > 0)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please Enter Druggist Name:");
@@ -52,7 +52,7 @@ namespace Pharmacy.Controllers
                         result = int.TryParse(drugstoreId, out id);
                         if (result)
                         {
-                            var drugstore = _drugstoreRepoitory.Get(d => d.Id == id);
+                            var drugstore = _drugstoreRepository.Get(d => d.Id == id);
                             if (drugstore != null)
                             {
                                 var druggist = new Druggist()
@@ -65,7 +65,7 @@ namespace Pharmacy.Controllers
 
 
                                 };
-                                _druggistRepoitory.Create(druggist);
+                                _druggistRepository.Create(druggist);
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id:{druggist.Id} Name:{druggist.Name} Age:{druggist.Age} Experience:{druggist.Experience} Drugstore:{druggist.DrugStore} ");
 
                             }
@@ -104,8 +104,8 @@ namespace Pharmacy.Controllers
         #region UpdateDruggist
         public void UpdateDruggist()
         {
-            var druggists = _druggistRepoitory.GetAll();
-            var drugstores = _drugstoreRepoitory.GetAll();
+            var druggists = _druggistRepository.GetAll();
+            var drugstores = _drugstoreRepository.GetAll();
             if (druggists.Count > 0)
             {
             all: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Druggist:");
@@ -119,7 +119,7 @@ namespace Pharmacy.Controllers
                 bool result = int.TryParse(druggistId, out id);
                 if (result)
                 {
-                    var druggist = _druggistRepoitory.Get(d => d.Id == id);
+                    var druggist = _druggistRepository.Get(d => d.Id == id);
                     if (druggist != null)
                     {
                         string oldname = druggist.Name;
@@ -152,7 +152,7 @@ namespace Pharmacy.Controllers
                                 result = int.TryParse(drugstoreId, out storeid);
                                 if (result)
                                 {
-                                    var drugstore = _drugstoreRepoitory.Get(d => d.Id == storeid);
+                                    var drugstore = _drugstoreRepository.Get(d => d.Id == storeid);
                                     if (drugstore != null)
                                     {
                                         var newDruggist = new Druggist()
@@ -164,7 +164,7 @@ namespace Pharmacy.Controllers
                                             DrugStore = drugstore,
 
                                         };
-                                        _druggistRepoitory.Update(druggist);
+                                        _druggistRepository.Update(druggist);
                                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"OldName:{oldname} OldSurname:{oldsurname} OldAge:{oldage} IS Successfully Update to:NewName:{newName} NewSurname:{newSurname} NewAge:{age} NewExperience:{experience} NewDrugstore:{drugstore}");
                                     }
                                     else
@@ -210,7 +210,48 @@ namespace Pharmacy.Controllers
         }
         #endregion
 
+        #region DeleteDruggist
+        public void DeleteDruggist()
+        {
+            var druggists = _druggistRepository.GetAll();
 
+            if (druggists.Count > 0)
+            {
+             all:   ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Druggist:");
+                foreach (var druggist in druggists)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{druggist.Id} Name:{druggist.Name} Surname:{druggist.Surname} Experience:{druggist.Experience}");
+                }
+              id:  ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please Enter Druggist Id:");
+                string druggistId = Console.ReadLine();
+                int id;
+                bool result = int.TryParse(druggistId, out id);
+                if (result)
+                {
+                    var druggist = _druggistRepository.Get(d => d.Id == id);
+                    if (druggist!=null)
+                    {
+                        _druggistRepository.Delete(druggist);
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id:{druggist.Id} is deleted.");
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "This druggist id doesn't exist");
+                        goto all;
+                    } 
+                }
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format id");
+                    goto id;
+                }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no any Druggist");
+            }
+        }
+        #endregion
 
 
     }
