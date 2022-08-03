@@ -17,6 +17,7 @@ namespace Pharmacy.Controllers
             _adminRepositories = new AdminRepository();
         }
 
+        #region Authenticate
         public Admin Authenticate()
         {
            
@@ -30,7 +31,14 @@ namespace Pharmacy.Controllers
                                              && PasswordHasher.Decrypt(a.Password) == password);
             return admin;
         
-        
+
         }
+
+
+        #endregion
+
+
+
+
     }
 }

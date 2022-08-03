@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Controllers
 {
-    public class OwnerConstoller
+    public class OwnerController
     {
 
 
         private OwnerRepository _ownerRepository;
 
-        public OwnerConstoller()
+        public OwnerController()
         {
             _ownerRepository = new OwnerRepository();
         }
@@ -71,7 +71,7 @@ namespace Pharmacy.Controllers
 
                         var newOwner = new Owner
                         {
-                            Id = owner.Id,
+
                             Name = newName,
                             Surname = newsurname,
                         };
@@ -103,7 +103,7 @@ namespace Pharmacy.Controllers
             var owners = _ownerRepository.GetAll();
             if (owners.Count > 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Owners:");
+              all:  ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Owners:");
                 foreach (var owner in owners)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{owner.Id} Name:{owner.Name} Surname:{owner.Surname}");
@@ -123,6 +123,7 @@ namespace Pharmacy.Controllers
                     else
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "This Owner doesn't exist");
+                        goto all;
                     }
                 }
                 else

@@ -13,7 +13,7 @@ namespace Core.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public byte Age { get; set; }
-        public int Experience { get; set; }
+        public double Experience { get; set; }
         public DrugStore DrugStore { get; set; }
 
 

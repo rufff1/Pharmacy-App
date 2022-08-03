@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Core\\Core.csproj": {}
+    "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Core\\Core.csproj": {
+    "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\ASUS ROG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Core\\obj\\",
+        "outputPath": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS ROG\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -50,11 +50,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
       "projectName": "Pharmacy",
-      "projectPath": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+      "projectPath": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
       "packagesPath": "C:\\Users\\ASUS ROG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\Pharmacy\\obj\\",
+      "outputPath": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\Pharmacy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS ROG\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -71,8 +71,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\ASUS ROG\\source\\repos\\Pharmacy\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\ASUS ROG\\Desktop\\Pharmacy\\DataAccess\\DataAccess.csproj"
             }
           }
         }

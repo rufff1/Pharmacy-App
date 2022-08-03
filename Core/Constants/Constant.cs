@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Core.Constants
 {
-    public enum OwnertOptions
+   public enum AdminOptions
     {
-
-        Create = 1,
-        Update,
-        Delete,
-        GetAll,
-        BackToMainMenu,
-
+        Logout = 1,
+        BackMainMenu = 0,
     }
     public enum DrugOptions
     {
@@ -23,37 +18,39 @@ namespace Core.Constants
         DeleteDrug,
         GetAllDrugByStore,
         GetDrugByStore,
-        BackMainMenu,
+        DrugFilter,
+        BackMainMenu = 0,
     }
 
     public enum DruggistOptions
     {
-        Create = 1,
-        Update,
-        Delete,
-        GetAll,
+        CreateDruggist = 1,
+        UpdateDruggist,
+        DeleteDruggist,
+        GetAllDruggist,
         GetAllDruggistByDrugStore,
-        BackToMainMenu,
+        BackToMainMenu = 0,
     }
 
     public enum DrugStoreOptions
     {
-        Create = 1,
-        Update,
-        Delete,
-        GetAll,
+        CreateDrugStore = 1,
+        UpdateDrugStore,
+        DeleteDrugStore,
+        GetAllDrugStore,
         GetAllDrugStoreByOwner,
         Sale,
-        BackToMainMenu,
+        BackToMainMenu = 0,
     }
     public enum OwnerOptions
     {
-        Create = 1,
-        Update,
-        Delete,
-        GetAll,
-        BackToMainMenu,
+        CreateOwner = 1,
+        UpdateOwner,
+        DeleteOwner,
+        GetAllOwner,
+        BackToMainMenu = 0,
     }
 
+  
 }
 
