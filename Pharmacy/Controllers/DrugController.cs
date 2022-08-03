@@ -32,15 +32,18 @@ namespace Pharmacy.Controllers
                 string priceDrug = Console.ReadLine();
                 double price;
                 bool result = double.TryParse(priceDrug, out price);
-            drugCount: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Enter Drug Count:");
-                string countDrug = Console.ReadLine();
-                int count;
-                result = int.TryParse(countDrug, out count);
-
                 if (result)
                 {
+
+
+                drugCount: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Enter Drug Count:");
+                    string countDrug = Console.ReadLine();
+                    int count;
+                    result = int.TryParse(countDrug, out count);
+
                     if (result)
                     {
+
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All DrugStories:");
                         foreach (var drugstore in drugStories)
                         {
@@ -85,14 +88,13 @@ namespace Pharmacy.Controllers
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format drug count");
                         goto drugCount;
                     }
+
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format drug price");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format price");
                     goto drugPrice;
                 }
-
-
             }
             else
             {
@@ -218,6 +220,8 @@ namespace Pharmacy.Controllers
 
         #endregion
 
+      
+
         #region  GetAllDrugByStore
         public void GetAllDrugByStore()
         {
@@ -279,12 +283,12 @@ namespace Pharmacy.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Drugs:");
                     foreach (var drug in drugs)
                     {
-                        if (drug.Price<price)
+                        if (drug.Price < price)
                         {
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{drug.Id} Name:{drug.Name} Price:{drug.Price} Count:{drug.Count}");
                         }
-                    
-                    
+
+
                     }
                 }
                 else

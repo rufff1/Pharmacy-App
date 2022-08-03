@@ -47,13 +47,13 @@ namespace Pharmacy.Controllers
             var owners = _ownerRepository.GetAll();
             if (owners.Count > 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Owner:");
+              all:  ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Owner:");
                 foreach (var owner in owners)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{owner.Id} Name:{owner.Name} Surname:{owner.Surname}");
                 }
 
-            id: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please Enter Owner Id");
+               id: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please Enter Owner Id");
                 string ownerId = Console.ReadLine();
                 int id;
                 bool result = int.TryParse(ownerId, out id);
@@ -69,20 +69,22 @@ namespace Pharmacy.Controllers
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please enter new owner surname:");
                         string newsurname = Console.ReadLine();
 
-                        var newOwner = new Owner
+                        var newOwner = new Owner()
                         {
 
                             Name = newName,
                             Surname = newsurname,
                         };
-                        _ownerRepository.Update(newOwner);
+                        _ownerRepository.Update(owner);
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldName} OldSurname:{oldSurname}, Owner Successfully Update: NewName:{newOwner.Name} NewSurname:{newOwner.Surname}  ");
                     }
                     else
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "This owner doesn't exist");
+                        goto all;
                     }
                 }
+                else
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format Id");
                     goto id;
@@ -103,7 +105,7 @@ namespace Pharmacy.Controllers
             var owners = _ownerRepository.GetAll();
             if (owners.Count > 0)
             {
-              all:  ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Owners:");
+            all: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Owners:");
                 foreach (var owner in owners)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{owner.Id} Name:{owner.Name} Surname:{owner.Surname}");
@@ -151,6 +153,10 @@ namespace Pharmacy.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{owner.Id} Name:{owner.Name} Surname:{owner.Surname}");
                 }
 
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no any owner");
             }
         }
         #endregion

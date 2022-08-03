@@ -80,8 +80,8 @@ namespace Pharmacy
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "1 - Creat Drug");
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "2 - Update Drug");
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "3 - Delete Drug");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "4 - Get All Drug By Store");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "5 - Get Drug By Store");
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "4 - Get All");
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "5 - Get All Drug By Store");
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "6 - Drug Filter");
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "0 - Back To Main Menu");
 
@@ -105,6 +105,9 @@ namespace Pharmacy
                                         break;
                                     case (int)DrugOptions.DeleteDrug:
                                         _drugController.DeleteDrug();
+                                        break;
+                                    case (int)DrugOptions.GetAllDrug:
+                                        _drugController.GetAllDrug();
                                         break;
                                     case (int)DrugOptions.GetAllDrugByStore:
                                         _drugController.GetAllDrugByStore();
@@ -144,7 +147,25 @@ namespace Pharmacy
                             {
                                 switch (selectedNumber)
                                 {
-                                    
+                                    case (int)DruggistOptions.CreateDruggist:
+                                        _druggistController.CreateDruggist();
+                                        break;
+                                    case (int)DruggistOptions.UpdateDruggist:
+                                        _druggistController.UpdateDruggist();
+                                        break;
+                                    case (int)DruggistOptions.DeleteDruggist:
+                                        _druggistController.DeleteDruggist();
+                                        break;
+                                    case (int)DruggistOptions.GetAllDruggist:
+                                        _druggistController.GetAllDruggist();
+                                            break;
+                                    case (int)DruggistOptions.GetAllDruggistByDrugStore:
+                                        _druggistController.GetAllDruggistByDrugStore();
+                                        break;
+                                    case (int)DruggistOptions.BackToMainMenu:
+                                        goto mainMenu;
+                                        break;
+                                        
 
 
 

@@ -16,8 +16,8 @@ namespace Core.Constants
         CreateDrug = 1,
         UpdateDrug,
         DeleteDrug,
+        GetAllDrug,
         GetAllDrugByStore,
-        GetDrugByStore,
         DrugFilter,
         BackMainMenu = 0,
     }
