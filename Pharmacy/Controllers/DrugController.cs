@@ -144,11 +144,12 @@ namespace Pharmacy.Controllers
                             {
                                 var newDrug = new Drug
                                 {
+                                   Id = drug.Id,
                                     Name = newName,
                                     Price = price,
                                     Count = count,
                                 };
-                                _drugRepository.Update(drug);
+                                _drugRepository.Update(newDrug);
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldPrice:{oldprice} OldCount:{oldcount} is drug successfully update: Name:{newName} Price:{newPrice} Count:{newCount}");
 
                             }
@@ -220,7 +221,24 @@ namespace Pharmacy.Controllers
 
         #endregion
 
-      
+        #region GetAllDrug
+        public void GetAllDrug()
+        {
+            var drugs = _drugRepository.GetAll();
+            if (drugs.Count > 0)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Drugs:");
+                foreach (var drug in drugs)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{drug.Id} Name:{drug.Name} Price:{drug.Price} Count:{drug.Count} Drugstore:{drug.DrugStores.Name} ");
+                }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no any drug");
+            }
+        }
+        #endregion
 
         #region  GetAllDrugByStore
         public void GetAllDrugByStore()

@@ -157,6 +157,7 @@ namespace Pharmacy.Controllers
                                     {
                                         var newDruggist = new Druggist()
                                         {
+                                           Id = drugstore.Id,
                                             Name = newName,
                                             Surname = newSurname,
                                             Age = age,
@@ -164,8 +165,8 @@ namespace Pharmacy.Controllers
                                             DrugStore = drugstore,
 
                                         };
-                                        _druggistRepository.Update(druggist);
-                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"OldName:{oldname} OldSurname:{oldsurname} OldAge:{oldage} IS Successfully Update to:NewName:{newName} NewSurname:{newSurname} NewAge:{age} NewExperience:{experience} NewDrugstore:{drugstore}");
+                                        _druggistRepository.Update(newDruggist);
+                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"OldName:{oldname} OldSurname:{oldsurname} OldAge:{oldage} IS Successfully Update to:Id:{newDruggist.Id} NewName:{newName} NewSurname:{newSurname} NewAge:{age} NewExperience:{experience} NewDrugstore:{drugstore}");
                                     }
                                     else
                                     {

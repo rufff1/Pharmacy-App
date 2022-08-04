@@ -67,16 +67,16 @@ namespace Pharmacy.Controllers
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please enter new owner name:");
                         string newName = Console.ReadLine();
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please enter new owner surname:");
-                        string newsurname = Console.ReadLine();
+                        string newSurname = Console.ReadLine();
 
-                        var newOwner = new Owner()
+                        var newOwner = new Owner
                         {
-
+                            Id=owner.Id,    
                             Name = newName,
-                            Surname = newsurname,
+                            Surname = newSurname,
                         };
-                        _ownerRepository.Update(owner);
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldName} OldSurname:{oldSurname}, Owner Successfully Update: NewName:{newOwner.Name} NewSurname:{newOwner.Surname}  ");
+                        _ownerRepository.Update(newOwner);
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldName} OldSurname:{oldSurname}, Owner Successfully Update:Id:{newOwner.Id}  NewName:{newOwner.Name} NewSurname:{newOwner.Surname}  ");
                     }
                     else
                     {
