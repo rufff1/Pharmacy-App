@@ -91,9 +91,9 @@ namespace DataAccess.Impelementations
         {
             try
             {
-                if (entity != null)
+                var druggist = DbContext.Druggists.Find(D => D.Id == entity.Id);
+                if (druggist != null)
                 {
-                    var druggist = DbContext.Druggists.Find(D => D.Id == entity.Id);
                     druggist.Name = entity.Name;
                     druggist.Surname = entity.Surname;
                     druggist.Age = entity.Age;

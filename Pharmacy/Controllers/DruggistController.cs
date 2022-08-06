@@ -65,6 +65,7 @@ namespace Pharmacy.Controllers
 
 
                                 };
+                                drugstore.Druggists.Add(druggist);
                                 _druggistRepository.Create(druggist);
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id:{druggist.Id} Name:{druggist.Name} Age:{druggist.Age} Experience:{druggist.Experience} Drugstore:{druggist.DrugStore.Name}");
 
@@ -157,7 +158,7 @@ namespace Pharmacy.Controllers
                                     {
                                         var newDruggist = new Druggist()
                                         {
-                                           Id = drugstore.Id,
+                                           Id = storeid,
                                             Name = newName,
                                             Surname = newSurname,
                                             Age = age,
@@ -165,8 +166,9 @@ namespace Pharmacy.Controllers
                                             DrugStore = drugstore,
 
                                         };
+                                      
                                         _druggistRepository.Update(newDruggist);
-                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"OldName:{oldname} OldSurname:{oldsurname} OldAge:{oldage} IS Successfully Update to:Id:{newDruggist.Id} NewName:{newName} NewSurname:{newSurname} NewAge:{age} NewExperience:{experience} NewDrugstore:{drugstore}");
+                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldSurname:{oldsurname} OldAge:{oldage} IS Successfully Update to:Id:{storeid} NewName:{newDruggist.Name} NewSurname:{newDruggist.Surname} NewAge:{newDruggist.Age} NewExperience:{newDruggist.Experience} NewDrugstore:{newDruggist.DrugStore.Name}");
                                     }
                                     else
                                     {

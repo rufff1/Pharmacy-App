@@ -91,14 +91,14 @@ namespace DataAccess.Impelementations
         {
             try
             {
-                if (entity != null)
+                var drugStore = DbContext.DrugStores.Find(d => d.Id == entity.Id);
+                if (drugStore != null)
                 {
-                    var drugStore = DbContext.DrugStores.Find(d => d.Id == entity.Id);
                     drugStore.Name = entity.Name;
                     drugStore.Adresss = entity.Adresss;
                     drugStore.ContactNumber = entity.ContactNumber;
                     drugStore.Owner = entity.Owner;
-                    
+
                 }
             }
             catch (Exception e)

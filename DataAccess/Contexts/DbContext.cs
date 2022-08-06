@@ -18,8 +18,6 @@ namespace DataAccess.Contexts
             Admins = new List<Admin>();
             Owners = new List<Owner>();
             
-            
-            
             Admins = new List<Admin>();
             string password1 = "0000";
             var hashedPassword1 = PasswordHasher.Encrypt(password1);
@@ -31,14 +29,13 @@ namespace DataAccess.Contexts
             Admin admin2 = new Admin("admin2", hashedPassword2);
             Admins.Add(admin2);
 
-
         }
-
         public static List<Drug> Drugs { get; set; }
         public static List<Druggist> Druggists { get; set; }
         public static List<DrugStore> DrugStores { get; set; }
         public static List<Admin> Admins { get; set; }
         public static List<Owner> Owners { get; set; }
+        
 
 
     }

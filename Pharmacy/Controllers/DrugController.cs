@@ -66,6 +66,7 @@ namespace Pharmacy.Controllers
                                     DrugStores = drugStore,
 
                                 };
+                                drugStore.Drugs.Add(drug);
                                 _drugRepository.Create(drug);
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{drugName}, Price:{priceDrug}, Count:{countDrug} DrugStore:{drug.DrugStores.Name} is successfully created drug");
 
@@ -150,15 +151,24 @@ namespace Pharmacy.Controllers
                                     Price = price,
                                     Count = count,
                                 };
+
                                 _drugRepository.Update(newDrug);
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldPrice:{oldprice} OldCount:{oldcount} is drug successfully update: Name:{newName} Price:{newPrice} Count:{newCount}");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldPrice:{oldprice} OldCount:{oldcount} is drug successfully update: Name:{newDrug.Name} Price:{newDrug.Price} Count:{newDrug.Count}");
 
                             }
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format count");
-                            goto count;
+                            else
+                            {
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format count");
+                                goto count;
+
+                            }
                         }
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format Price");
-                        goto price;
+                        else
+                        {
+
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct format Price");
+                            goto price;
+                        }
                     }
                     else
                     {
@@ -265,7 +275,7 @@ namespace Pharmacy.Controllers
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "The drugs of drugsore:");
                         foreach (var drug in drugs)
                         {
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{drug.Id} Name:{drug.Name} Price:{drug.Price} Count:{drug.Count}");
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id:{drug.Id} Name:{drug.Name} Price:{drug.Price} Count:{drug.Count}");
                         }
                     }
                     else
@@ -290,6 +300,7 @@ namespace Pharmacy.Controllers
         #region DrugFilter
         public void DrugFilter()
         {
+
         price: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please enter filter price:");
             string filterprice = Console.ReadLine();
             double price;

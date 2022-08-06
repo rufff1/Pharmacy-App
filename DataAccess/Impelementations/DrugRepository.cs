@@ -36,7 +36,7 @@ namespace DataAccess.Impelementations
             {
                 DbContext.Drugs.Remove(entity);
             }
-            catch ( Exception e)
+            catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
@@ -47,10 +47,10 @@ namespace DataAccess.Impelementations
         {
             try
             {
-                if (filter==null)
+                if (filter == null)
                 {
                     return DbContext.Drugs[0];
-                
+
                 }
                 else
                 {
@@ -69,7 +69,7 @@ namespace DataAccess.Impelementations
         {
             try
             {
-                if (filter==null)
+                if (filter == null)
                 {
                     return DbContext.Drugs;
                 }
@@ -90,11 +90,11 @@ namespace DataAccess.Impelementations
         {
             try
             {
-                if (entity!=null)
+                var drug = DbContext.Drugs.Find(d => d.Id == entity.Id);
+                if (drug != null)
                 {
-                    var drug = DbContext.Drugs.Find(d => d.Id ==entity.Id);
-                    drug.Name=entity.Name;
-                    drug.Count=entity.Count;
+                    drug.Name = entity.Name;
+                    drug.Count = entity.Count;
                     drug.Price = entity.Price;
 
                 }
@@ -103,7 +103,7 @@ namespace DataAccess.Impelementations
             {
 
                 Console.WriteLine(e.Message);
-                
+
             }
         }
     }

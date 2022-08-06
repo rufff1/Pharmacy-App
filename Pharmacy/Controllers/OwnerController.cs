@@ -36,7 +36,8 @@ namespace Pharmacy.Controllers
                 Name = name,
                 Surname = surname
             };
-            var createdOwner = _ownerRepository.Create(owner);
+         
+            _ownerRepository.Create(owner);
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id:{owner.Id} Name:{owner.Name} Surname:{owner.Surname} Owner Successfully Created...");
         }
         #endregion

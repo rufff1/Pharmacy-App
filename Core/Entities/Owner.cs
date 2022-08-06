@@ -10,6 +10,11 @@ namespace Core.Entities
 {
     public class Owner :Person, IEntity
     {
+
+        public Owner()
+        {
+            Drugstores = new List<DrugStore>();
+        }
         public int Id { get; set; }
         public List<DrugStore> Drugstores { get; set; }
     }

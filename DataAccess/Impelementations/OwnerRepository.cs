@@ -89,7 +89,7 @@ namespace DataAccess.Impelementations
             try
             {
                 var owner = DbContext.Owners.Find(o => o.Id == entity.Id);
-                if (entity!=null)
+                if (owner!=null)
                 {
                     owner.Name = entity.Name;
                     owner.Surname = entity.Surname;

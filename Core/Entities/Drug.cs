@@ -17,5 +17,7 @@ namespace Core.Entities
   
         public double SumPrice { get; set; }
 
+        public double AllSales { get; set; }
+
     }
 }
