@@ -1,4 +1,5 @@
 ﻿using Core.Abstractions;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Owner : IEntity
+    public class Owner :Person, IEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
         public List<DrugStore> Drugstores { get; set; }
     }
 }

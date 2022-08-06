@@ -14,7 +14,7 @@ namespace Core.Entities
         public double Price { get; set; }
         public int Count { get; set; }
         public DrugStore DrugStores { get; set; }
-        public int CurrentCount { get; set; }
+  
         public double SumPrice { get; set; }
 
     }

@@ -64,9 +64,10 @@ namespace Pharmacy.Controllers
                                     Price = price,
                                     Count = count,
                                     DrugStores = drugStore,
+
                                 };
                                 _drugRepository.Create(drug);
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{drugName}, Price:{priceDrug}, Count:{countDrug} DrugStore:{drug.DrugStores.Name}is successfully created drug");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{drugName}, Price:{priceDrug}, Count:{countDrug} DrugStore:{drug.DrugStores.Name} is successfully created drug");
 
                             }
                             else
@@ -144,7 +145,7 @@ namespace Pharmacy.Controllers
                             {
                                 var newDrug = new Drug
                                 {
-                                   Id = drug.Id,
+                                    Id = drug.Id,
                                     Name = newName,
                                     Price = price,
                                     Count = count,
@@ -285,40 +286,53 @@ namespace Pharmacy.Controllers
             }
         }
         #endregion
-
+        //filter bax
         #region DrugFilter
         public void DrugFilter()
         {
-            var drugs = _drugRepository.GetAll();
-            if (drugs.Count > 0)
+        price: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please enter filter price:");
+            string filterprice = Console.ReadLine();
+            double price;
+            bool result = double.TryParse(filterprice, out price);
+
+            if (result)
             {
-            price: ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please enter filter price:");
-                string filterprice = Console.ReadLine();
-                double price;
-                bool result = double.TryParse(filterprice, out price);
-                if (result)
+                if (price > 0)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Drugs:");
-                    foreach (var drug in drugs)
+
+                    var drugs = _drugRepository.GetAll(d => d.Price < price);
+                    if (drugs.Count > 0)
                     {
-                        if (drug.Price < price)
+
+
+
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Drugs:");
+                        foreach (var drug in drugs)
                         {
+
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{drug.Id} Name:{drug.Name} Price:{drug.Price} Count:{drug.Count}");
+
+
                         }
 
-
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no any drug");
                     }
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "please enter correct format price");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter correct price filter");
                     goto price;
                 }
             }
             else
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no any drug");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "please enter correct format price");
+                goto price;
             }
+
 
 
         }
