@@ -98,6 +98,7 @@ namespace DataAccess.Impelementations
                     druggist.Surname = entity.Surname;
                     druggist.Age = entity.Age;
                     druggist.DrugStore = entity.DrugStore;
+                    druggist.Experience = entity.Experience;
                 }
 
             }
