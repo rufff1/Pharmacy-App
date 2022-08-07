@@ -42,7 +42,7 @@ namespace Pharmacy.Controllers
                         string druggistExperience = Console.ReadLine();
                         double experience;
                         result = double.TryParse(druggistExperience, out experience);
-                        if (age > experience)
+                        if (age > experience && experience <= age / 2)
                         {
 
                             if (result)
@@ -161,7 +161,7 @@ namespace Pharmacy.Controllers
                                 string experience = Console.ReadLine();
                                 double newExperience;
                                 result = double.TryParse(experience, out newExperience);
-                                if (age > newExperience)
+                                if (age > newExperience && newExperience <= age / 2)
                                 {
                                     if (result)
                                     {
