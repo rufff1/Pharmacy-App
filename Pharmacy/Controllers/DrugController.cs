@@ -111,6 +111,7 @@ namespace Pharmacy.Controllers
         public void UpadateDrug()
         {
             var drugs = _drugRepository.GetAll();
+            var drugstores = _drugStoreRepository.GetAll();
             if (drugs.Count > 0)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All Drugs:");
@@ -144,16 +145,44 @@ namespace Pharmacy.Controllers
                             result = int.TryParse(newCount, out count);
                             if (result)
                             {
-                                var newDrug = new Drug
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Do you want update drugstore?? 1--YES || OtherKeys--NO");
+                                string text = Console.ReadLine();
+                                if (text == "yes".ToLower())
                                 {
-                                    Id = drug.Id,
-                                    Name = newName,
-                                    Price = price,
-                                    Count = count,
-                                };
+                                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "All DrugStore:");
+                                    foreach (var drugstore in drugstores)
+                                    {
+                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"Id:{drugstore.Id} Name:{drugstore.Name} Adress:{drugstore.Adresss} Owner:{drugstore.Owner.Name}");
+                                    }
+                                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "Enter DrugStore Id:");
+                                    string drugstoreId = Console.ReadLine();
+                                    int id1;
+                                    
+                                    result = int.TryParse(drugstoreId, out id1);    
+                                    var dbdrugstore = _drugStoreRepository.Get(d => d.Id ==id1);
+                                    var newDrug1 = new Drug
+                                    {
+                                        Id = drug.Id,
+                                        Name = newName,
+                                        Price = price,
+                                        Count = count,
+                                        DrugStores=dbdrugstore
+                                    };
+                                }
+                                else
+                                {
+                                    var newDrug = new Drug
+                                    {
+                                        Id = drug.Id,
+                                        Name = newName,
+                                        Price = price,
+                                        Count = count,
+                                    };
+                                    _drugRepository.Update(newDrug);
 
-                                _drugRepository.Update(newDrug);
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldPrice:{oldprice} OldCount:{oldcount} is drug successfully update: Name:{newDrug.Name} Price:{newDrug.Price} Count:{newDrug.Count}");
+                                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldPrice:{oldprice} OldCount:{oldcount} is drug successfully update:Id:{drugId} Name:{newDrug.Name} Price:{newDrug.Price} Count:{newDrug.Count}");
+                                }
+
 
                             }
                             else

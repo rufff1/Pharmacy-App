@@ -141,16 +141,16 @@ namespace Pharmacy.Controllers
                             {
                                 var newDrugstore = new DrugStore
                                 {
-                                    Id = newId,
+                                    Id = id,
                                     Name = newName,
                                     Adresss = newAdress,
                                     ContactNumber = newContactName,
                                     Owner = newowner
 
                                 };
-                                _drugStoreRepository.Update(newDrugstore);
                                 newowner.Drugstores.Add(newDrugstore);
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldAdress:{oldadress} OldContactNumber:{oldcontactnumber} Drugstore is successfully update: ID:{newDrugstore.Id} Name:{newDrugstore.Name} Adress:{newDrugstore.Adresss} ContactNumber:{newDrugstore.ContactNumber} Owner:{newDrugstore.Owner.Name} ");
+                                _drugStoreRepository.Update(newDrugstore);
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"OldName:{oldname} OldAdress:{oldadress} OldContactNumber:{oldcontactnumber} Drugstore is successfully update: ID:{id} Name:{newDrugstore.Name} Adress:{newDrugstore.Adresss} ContactNumber:{newDrugstore.ContactNumber} Owner:{newDrugstore.Owner.Name} ");
 
 
                             }
@@ -421,7 +421,6 @@ namespace Pharmacy.Controllers
                                         else
                                         {
                                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Unfortunately, this amount of drug is not available in the pharmacy");
-                                            goto count;
                                         }
                                     }
                                     else
